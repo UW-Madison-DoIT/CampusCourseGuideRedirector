@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+    
+    <bean id="browseByTitleRedirect" class="edu.wisc.my.redirect.PortalUrlRedirectController">
+        <property name="strictParameterMatching" value="false" />
+        <property name="portalUrlProvider" ref="portalUrlProvider" />
+        <property name="portletFunctionalName" value="CourseGuide-Browse-Courses" />
+        <property name="windowState" value="detached" />
+        <property name="staticParameters">
+            <map>
+                <entry key="action" value="advancedSearch" />
+            </map>
+        </property>
+        <property name="parameterMappings">
+            <map>
+                <entry key="subjectCode" value="subjectChoice" />
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="browseBySubjectRedirect" class="edu.wisc.my.redirect.PortalUrlRedirectController">
+        <property name="strictParameterMatching" value="false" />
+        <property name="portalUrlProvider" ref="portalUrlProvider" />
+        <property name="portletFunctionalName" value="CourseGuide-Browse-Courses" />
+        <property name="windowState" value="detached" />
+        <property name="staticParameters">
+            <map>
+                <entry key="action" value="subjectSearch" />
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="courseDetailsRedirect" class="edu.wisc.my.redirect.PortalUrlRedirectController">
+        <property name="portalUrlProvider" ref="portalUrlProvider" />
+        <property name="portletFunctionalName" value="CourseGuide-Browse-Courses" />
+        <property name="windowState" value="detached" />
+        <property name="staticParameters">
+            <map>
+                <entry key="action" value="courseDetail" />
+                <entry key="show_home" value="Y" />
+            </map>
+        </property>
+        <property name="parameterMappings">
+            <map>
+                <entry key="termCode" value="termCode" />
+                <entry key="topicId" value="topicId" />
+                <entry key="courseID" value="courseID" />
+                <entry key="subjectCode" value="subjectId" />
+            </map>
+        </property>
+    </bean>
+    
+    <bean id="courseGuideTabRedirect" class="edu.wisc.my.redirect.TabSelectingUrlRedirectController">
+        <property name="portalUrlProvider" ref="portalUrlProvider" />
+        <property name="publicTabIndex" value="1" />
+        <property name="privateTabIndex" value="3" />
+    </bean>
+    
+    <bean id="portalUrlProvider" class="edu.wisc.my.redirect.url.LocalPortalUrlProvider">
+        <property name="serverNamePattern" value="(.*)" />
+        
+        <property name="publicRedirectFormat" value="public.{1}" />
+        <property name="publicRedirectProtocol" value="http" />
+        
+        <property name="privateRedirectFormat" value="{1}" />
+        <property name="privateRedirectProtocol" value="https" />
+    </bean>
+
+
+    <bean class="org.springframework.beans.factory.annotation.RequiredAnnotationBeanPostProcessor" lazy-init="false" />
+</beans>
