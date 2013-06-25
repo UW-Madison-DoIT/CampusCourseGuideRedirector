@@ -21,7 +21,7 @@
     
     <scm>
         <connection>scm:git:git@github.com:UW-Madison-DoIT/CampusCourseGuideRedirector.git</connection>
-        <developerConnection>scm:git@github.com:UW-Madison-DoIT/CampusCourseGuideRedirector.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/CampusCourseGuideRedirector.git</developerConnection>
         <url>https://github.com/UW-Madison-DoIT/CampusCourseGuideRedirector</url>
         <tag>HEAD</tag>
 	</scm>
