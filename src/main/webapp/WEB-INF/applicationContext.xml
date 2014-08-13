@@ -15,6 +15,7 @@
         <property name="parameterMappings">
             <map>
                 <entry key="subjectCode" value="subjectChoice" />
+                <entry key="termCode" value="termChoice" />
             </map>
         </property>
     </bean>
