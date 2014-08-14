@@ -1,6 +1,0 @@
-<project name="Campus Course Guide" basedir=".">
-    <property environment="env" />
-    <property file="${basedir}/build.properties" />
-    
-    <import file="${basedir}/bootstrap/mvn_build.xml" />
-</project>
