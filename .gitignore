@@ -9,3 +9,7 @@
 .project
 .settings
 
+# IDE files #
+.idea
+*.iml
+atlassian-ide-plugin.xml
