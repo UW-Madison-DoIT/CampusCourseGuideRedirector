@@ -171,6 +171,7 @@ public class PortalUrlRedirectController extends AbstractController implements I
         }
         
         //Map static parameters
+        logger.debug("Mapping " + staticParameters.size() + " static parameters");
         for (final Map.Entry<String, List<String>> parameterMappingEntry : this.staticParameters.entrySet()) {
             final String name = parameterMappingEntry.getKey();
             final List<String> values = parameterMappingEntry.getValue();
@@ -183,6 +184,7 @@ public class PortalUrlRedirectController extends AbstractController implements I
         }
         
         //Map request parameters
+        logger.debug("Mapping " + parameterMappings.entrySet().size() + " request parameters");
         for (final Map.Entry<String, Set<String>> parameterMappingEntry : this.parameterMappings.entrySet()) {
             final String name = parameterMappingEntry.getKey();
 	        logger.debug("Mapping parameter " + name);
