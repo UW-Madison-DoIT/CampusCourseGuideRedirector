@@ -28,7 +28,6 @@ import edu.wisc.my.redirect.url.PortalUrl.RequestType;
 
 /**
  * @author Eric Dalquist
- * @version $Revision: 1.7 $
  */
 public class PortalUrlRedirectController extends AbstractController implements InitializingBean {
     private PortalUrlProvider portalUrlProvider;
@@ -186,7 +185,8 @@ public class PortalUrlRedirectController extends AbstractController implements I
         //Map request parameters
         for (final Map.Entry<String, Set<String>> parameterMappingEntry : this.parameterMappings.entrySet()) {
             final String name = parameterMappingEntry.getKey();
-            final String[] values = request.getParameterValues(name);
+	        logger.debug("Mapping parameter " + name);
+	        final String[] values = request.getParameterValues(name);
             
             if (values != null) {
                 for (final String mappedName : parameterMappingEntry.getValue()) {
