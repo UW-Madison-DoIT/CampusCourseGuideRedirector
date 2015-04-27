@@ -16,6 +16,8 @@
             <map>
                 <entry key="subjectCode" value="subjectChoice" />
                 <entry key="termCode" value="termChoice" />
+                <entry key="attrCode" value="specialGroupType" />
+                <entry key="attrValue" value="specialGroup" />
             </map>
         </property>
     </bean>
