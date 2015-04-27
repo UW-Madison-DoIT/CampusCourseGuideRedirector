@@ -237,7 +237,7 @@ public class PortalUrlRedirectController extends AbstractController implements I
         
         final String redirectUrl = portalUrl.toString();
         if (this.logger.isInfoEnabled()) {
-            this.logger.info("Redirecting to: " + redirectUrl);
+            this.logger.info("Redirection URL: " + redirectUrl);
         }
         
         return new ModelAndView(new RedirectView(redirectUrl, false));
