@@ -150,7 +150,10 @@ public class PortalUrlRedirectController extends AbstractController implements I
     protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception {
         final String serverName = request.getServerName();
         final PortalUrl portalUrl = this.portalUrlProvider.getPortalUrl(serverName);
-        
+
+        logger.debug("Incoming URL: " + request.getRequestURI());
+        logger.debug ("Incoming parameter names: " + StringUtils.join(Collections.list(request.getParameterNames()), ","));
+
         if (this.portletFunctionalName != null) {
             portalUrl.setTargetPortlet(this.portletFunctionalName);
         }
