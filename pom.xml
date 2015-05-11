@@ -11,7 +11,7 @@
     <artifactId>CourseGuideRedirect</artifactId>
     <packaging>war</packaging>
     <name>Course Guide Redirector</name>
-    <version>1.0.1-SNAPSHOT</version>
+    <version>1.0.1</version>
     <description>Redirects requests based on if a user is authenticated or not to other locations</description>
     
     <prerequisites>
@@ -22,7 +22,7 @@
         <connection>scm:git:git@github.com:UW-Madison-DoIT/CampusCourseGuideRedirector.git</connection>
         <developerConnection>scm:git:git@github.com:UW-Madison-DoIT/CampusCourseGuideRedirector.git</developerConnection>
         <url>https://github.com/UW-Madison-DoIT/CampusCourseGuideRedirector</url>
-        <tag>HEAD</tag>
+        <tag>1.0.1</tag>
 	</scm>
     
     <repositories>
