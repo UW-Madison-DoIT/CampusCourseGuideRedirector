@@ -35,6 +35,7 @@
     </bean>
     
     <bean id="courseDetailsRedirect" class="edu.wisc.my.redirect.PortalUrlRedirectController">
+        <property name="strictParameterMatching" value="false" />
         <property name="portalUrlProvider" ref="portalUrlProvider" />
         <property name="portletFunctionalName" value="CourseGuide-Browse-Courses" />
         <property name="windowState" value="detached" />
