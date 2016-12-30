@@ -23,6 +23,7 @@
                 <entry key="attrCode" value="specialGroupType" />
                 <entry key="attrValue" value="specialGroup" />
                 <entry key="ethnicStudies" value="ethnicStudies"/>
+                <entry key="instructionMode" value="instructionMode"/>
             </map>
         </property>
         <property name="conditionalParameterMappings">
