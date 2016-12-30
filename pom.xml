@@ -9,7 +9,7 @@
     
     <groupId>edu.wisc.my.portlet.campuscourseguideredirector</groupId>
     <artifactId>CourseGuideRedirect</artifactId>
-    <version>1.0.3-SNAPSHOT</version>
+    <version>1.0.4-SNAPSHOT</version>
     <packaging>war</packaging>
 
     <name>Course Guide Redirector</name>
@@ -151,8 +151,8 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.6.0</version>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
+                    <source>1.7</source>
+                    <target>1.7</target>
                 </configuration>
             </plugin>
         </plugins>
