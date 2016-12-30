@@ -1,12 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
-    
-    <bean id="browseByTitleRedirect" class="edu.wisc.my.redirect.PortalUrlRedirectController">
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="abstractRedirectBean" abstract="true" class="edu.wisc.my.redirect.PortalUrlRedirectController">
         <property name="strictParameterMatching" value="false" />
         <property name="portalUrlProvider" ref="portalUrlProvider" />
         <property name="portletFunctionalName" value="CourseGuide-Browse-Courses" />
         <property name="windowState" value="detached" />
+    </bean>
+
+    <bean id="browseByTitleRedirect" parent="abstractRedirectBean">
         <property name="staticParameters">
             <map>
                 <entry key="action" value="advancedSearch" />
@@ -18,15 +22,22 @@
                 <entry key="termCode" value="termChoice" />
                 <entry key="attrCode" value="specialGroupType" />
                 <entry key="attrValue" value="specialGroup" />
+                <entry key="ethnicStudies" value="ethnicStudies"/>
+                <entry key="instructionMode" value="instructionMode"/>
+            </map>
+        </property>
+        <property name="conditionalParameterMappings">
+            <map>
+                <entry key="ethnicStudies">
+                    <map>
+                        <entry key="_ethnicStudies" value="_on"/>
+                    </map>
+                </entry>
             </map>
         </property>
     </bean>
     
-    <bean id="browseBySubjectRedirect" class="edu.wisc.my.redirect.PortalUrlRedirectController">
-        <property name="strictParameterMatching" value="false" />
-        <property name="portalUrlProvider" ref="portalUrlProvider" />
-        <property name="portletFunctionalName" value="CourseGuide-Browse-Courses" />
-        <property name="windowState" value="detached" />
+    <bean id="browseBySubjectRedirect" parent="abstractRedirectBean">
         <property name="staticParameters">
             <map>
                 <entry key="action" value="subjectSearch" />
@@ -34,11 +45,7 @@
         </property>
     </bean>
     
-    <bean id="courseDetailsRedirect" class="edu.wisc.my.redirect.PortalUrlRedirectController">
-        <property name="strictParameterMatching" value="false" />
-        <property name="portalUrlProvider" ref="portalUrlProvider" />
-        <property name="portletFunctionalName" value="CourseGuide-Browse-Courses" />
-        <property name="windowState" value="detached" />
+    <bean id="courseDetailsRedirect" parent="abstractRedirectBean">
         <property name="staticParameters">
             <map>
                 <entry key="action" value="courseDetail" />
@@ -54,7 +61,7 @@
             </map>
         </property>
     </bean>
-    
+
     <bean id="courseGuideTabRedirect" class="edu.wisc.my.redirect.TabSelectingUrlRedirectController">
         <property name="portalUrlProvider" ref="portalUrlProvider" />
         <property name="publicTabIndex" value="1" />
